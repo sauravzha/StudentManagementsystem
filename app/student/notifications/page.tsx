@@ -1,0 +1,7 @@
+"use client";
+
+import NotificationsPage from "@/app/admin/notifications/page";
+
+export default function StudentNotificationsPage() {
+    return <NotificationsPage />;
+}
