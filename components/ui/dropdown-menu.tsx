@@ -97,8 +97,8 @@ DropdownMenuContent.displayName = "DropdownMenuContent";
 
 const DropdownMenuItem = React.forwardRef<
     HTMLDivElement,
-    React.HTMLAttributes<HTMLDivElement> & { inset?: boolean }
->(({ className, inset, onClick, ...props }, ref) => {
+    React.HTMLAttributes<HTMLDivElement> & { inset?: boolean; disabled?: boolean }
+>(({ className, inset, disabled, onClick, ...props }, ref) => {
 
     return (
         <div
@@ -108,7 +108,9 @@ const DropdownMenuItem = React.forwardRef<
                 inset && "pl-8",
                 className
             )}
+            data-disabled={disabled}
             onClick={(e) => {
+                if (disabled) return;
                 onClick && onClick(e);
                 // We rely on parent state to close, but in this simple implementation,
                 // we might not have access to setIsOpen here easily without context.
