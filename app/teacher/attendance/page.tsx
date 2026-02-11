@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar as CalendarIcon, Save, CheckCircle, XCircle } from "lucide-react";
-import { toast } from "sonner"; // Assuming sonner or generic alert
 
 export default function AttendancePage() {
     const { students, holidays, markAttendance } = useStore();
@@ -115,8 +114,8 @@ export default function AttendancePage() {
                                             <td className="px-6 py-4 text-gray-500">{student.rollNo}</td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold capitalize border ${isHoliday ? 'bg-yellow-50 text-yellow-700 border-yellow-200' :
-                                                        isPresent ? 'bg-green-50 text-green-700 border-green-200' :
-                                                            'bg-red-50 text-red-700 border-red-200'
+                                                    isPresent ? 'bg-green-50 text-green-700 border-green-200' :
+                                                        'bg-red-50 text-red-700 border-red-200'
                                                     }`}>
                                                     {isHoliday ? <CalendarIcon className="h-3 w-3" /> :
                                                         isPresent ? <CheckCircle className="h-3 w-3" /> :
@@ -131,8 +130,8 @@ export default function AttendancePage() {
                                                     onClick={() => handleToggle(student.id)}
                                                     disabled={isHoliday}
                                                     className={`w-32 transition-all ${isPresent
-                                                            ? "hover:bg-red-50 hover:text-red-600 hover:border-red-200"
-                                                            : "bg-red-600 hover:bg-red-700 ring-2 ring-red-100"
+                                                        ? "hover:bg-red-50 hover:text-red-600 hover:border-red-200"
+                                                        : "bg-red-600 hover:bg-red-700 ring-2 ring-red-100"
                                                         }`}
                                                 >
                                                     {isPresent ? "Mark Absent" : "Mark Present"}
